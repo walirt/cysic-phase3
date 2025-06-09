@@ -4,7 +4,7 @@
 | [Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
 
 ### Run directly
-```sh
+```bash
 docker run -e CLAIM_REWARD_ADDRESS="CLAIM REWARD ADDRESS" -d -v /YOUR_DIR/keys:/root/.cysic/keys --name cysic1 walirt/cysic-verifier:v3
 docker run -e CLAIM_REWARD_ADDRESS="ANOTHER CLAIM REWARD ADDRESS" -d -v /YOUR_ANOTHER_DIR/keys:/root/.cysic/keys --name cysic2 walirt/cysic-verifier:v3
 ```
@@ -30,11 +30,11 @@ services:
 ```
 
 then, run the following command:
-```sh
+```bash
 docker compose up -d
 ```
 
 ## Prover (without docker)
-```sh
-curl -L https://raw.githubusercontent.com/cysic-labs/cysic-phase3/refs/heads/main/setup_prover.sh > ~/setup_prover.sh && bash ~/setup_prover.sh $1 $2
+```bash
+curl -L https://raw.githubusercontent.com/walirt/cysic-phase3/refs/heads/main/setup_prover.sh > ~/setup_prover.sh && bash ~/setup_prover.sh $1 $2
 ```
