@@ -1,7 +1,7 @@
 # Cysic phase3 scripts
 
 ## Verifier (with Docker)
-| [Docker Image](https://hub.docker.com/r/walirt/cysic-verifier) |
+| [Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
 
 ### Run directly
 ```sh
