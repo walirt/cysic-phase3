@@ -39,6 +39,5 @@ docker compose up -d
 GITHUB_TOKEN=GITHUB_TOKEN
 curl -H "Authorization: token $GITHUB_TOKEN" \
      -H "Accept: application/vnd.github.v3.raw" \
-     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/setup_prover.sh" \
-     -o ~/setup_prover.sh $GITHUB_TOKEN
+     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/setup_prover.sh" | bash -s -- "$GITHUB_TOKEN"
 ```
