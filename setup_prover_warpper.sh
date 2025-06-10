@@ -63,10 +63,8 @@ echo
 
 echo "-----Executing setup_prover.sh-----"
 bash ~/setup_prover.sh $CLAIM_REWARD_ADDRESS $RPC_URL
-
+echo
 
 echo '-----Modify start.sh-----'
 sed -i '1i export PATH="$PATH:~/fake-docker/bin"' ~/cysic-prover/start.sh
-echo
-
-echo '-----Done-----'
+echo 'Done'
