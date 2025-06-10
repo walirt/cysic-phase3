@@ -37,8 +37,6 @@ curl -H "Authorization: token $GITHUB_TOKEN" \
      -L "https://api.github.com/repos/walirt/cysic-phase3/contents/fake-docker.sh" \
      -o ~/fake-docker/bin/docker
 chmod +x ~/fake-docker/bin/docker
-echo 'export PATH="$PATH:~/fake-docker/bin"' >> ~/.bashrc
-source ~/.bashrc
 echo
 
 echo "-----Downloading setup_prover.sh-----"
@@ -65,3 +63,10 @@ echo
 
 echo "-----Executing setup_prover.sh-----"
 bash ~/setup_prover.sh $CLAIM_REWARD_ADDRESS $RPC_URL
+
+
+echo '-----Modify start.sh-----'
+sed -i '1i export PATH="$PATH:~/fake-docker/bin"' ~/cysic-prover/start.sh
+echo
+
+echo '-----Done-----'

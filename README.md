@@ -41,7 +41,7 @@ apt install -y curl
 GITHUB_TOKEN=GITHUB_TOKEN
 curl -H "Authorization: token $GITHUB_TOKEN" \
      -H "Accept: application/vnd.github.v3.raw" \
-     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/setup_prover.sh"
+     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/setup_prover_warpper.sh"
      -o setup_prover_warpper.sh
 bash setup_prover_warpper.sh $GITHUB_TOKEN
 ```
