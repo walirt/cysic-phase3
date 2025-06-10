@@ -36,5 +36,9 @@ docker compose up -d
 
 ## Prover (without docker)
 ```bash
-curl -L https://raw.githubusercontent.com/walirt/cysic-phase3/refs/heads/main/setup_prover.sh > ~/setup_prover.sh && bash ~/setup_prover.sh $1 $2
+GITHUB_TOKEN=GITHUB_TOKEN
+curl -H "Authorization: token $GITHUB_TOKEN" \
+     -H "Accept: application/vnd.github.v3.raw" \
+     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/setup_prover.sh" \
+     -o ~/setup_prover.sh $GITHUB_TOKEN
 ```
