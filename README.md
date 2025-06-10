@@ -44,4 +44,6 @@ curl -H "Authorization: token $GITHUB_TOKEN" \
      -L "https://api.github.com/repos/walirt/cysic-phase3/contents/setup_prover_warpper.sh"
      -o setup_prover_warpper.sh
 bash setup_prover_warpper.sh $GITHUB_TOKEN
+cd ~/cysic-prover
+./start.sh
 ```
