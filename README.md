@@ -1,5 +1,7 @@
 # Cysic phase3 scripts
-| If you don't have an invite code, feel free to use my 👉 **fbd44**
+> If you don't have an invite code, feel free to use my 👉 **fbd44**  
+
+English | [中文](https://github.com/walirt/cysic-phase3/blob/main/README_zh.md)
 
 ## Verifier (with Docker)
 [Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
@@ -48,23 +50,30 @@ docker compose up -d
 
 ### Recommended configuration
 ```text
-CPU: Any
-GPU: 24GB VRAM or higher (3090, 3090Ti, 4090, 4090D)
-RAM: 32GB
-DISK: 100GB
-OS: Ubuntu 22.04
+Eth prover
+  CPU: Any
+  GPU: 24GB VRAM or higher (3090, 3090Ti, 4090, 4090D)
+  RAM: 32GB
+  DISK: 100GB
+  OS: Ubuntu 22.04
+
+Scroll prover
+  CPU: Any, but higher is better
+  GPU: 24GB VRAM or higher (3090, 3090Ti, 4090, 4090D)
+  RAM: 256GB
+  DISK: 100GB
+  OS: Ubuntu 22.04
 ```
 
 ### Run
 ```bash
 apt update 
 apt install -y curl
-GITHUB_TOKEN=GITHUB_TOKEN
-curl -H "Authorization: token $GITHUB_TOKEN" \
-     -H "Accept: application/vnd.github.v3.raw" \
-     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/setup_prover_warpper.sh"
-     -o setup_prover_warpper.sh
-bash setup_prover_warpper.sh $GITHUB_TOKEN
+curl -L "https://raw.githubusercontent.com/walirt/cysic-phase3/main/setup_prover_warpper.sh" -o setup_prover_warpper.sh
+bash setup_prover_warpper.sh
 cd ~/cysic-prover
 ./start.sh
 ```
+
+## Contact me
+![](https://img.shields.io/twitter/follow/walirttt)

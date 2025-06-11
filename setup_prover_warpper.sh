@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Check if token is provided
-if [ -z "$1" ]; then
-    echo "Error: GitHub token is required"
-    echo "Usage: $0 <github_token>"
-    exit 1
-fi
-
-GITHUB_TOKEN=$1
-
 echo "-----Installing rust-----"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source ~/.cargo/env
@@ -21,9 +12,7 @@ source ~/.bashrc
 echo
 
 echo "-----Downloading moongate-server-----"
-curl -H "Authorization: token $GITHUB_TOKEN" \
-     -H "Accept: application/vnd.github.v3.raw" \
-     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/moongate-server" \
+curl -L "https://raw.githubusercontent.com/walirt/cysic-phase3/main/moongate-server" \
      -o ~/moongate-server
 echo
 
@@ -32,9 +21,7 @@ mkdir -p ~/fake-docker/bin
 echo
 
 echo "-----Downloading fake-docker.sh-----"
-curl -H "Authorization: token $GITHUB_TOKEN" \
-     -H "Accept: application/vnd.github.v3.raw" \
-     -L "https://api.github.com/repos/walirt/cysic-phase3/contents/fake-docker.sh" \
+curl -L "https://raw.githubusercontent.com/walirt/cysic-phase3/main/fake-docker.sh" \
      -o ~/fake-docker/bin/docker
 chmod +x ~/fake-docker/bin/docker
 echo
