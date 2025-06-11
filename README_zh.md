@@ -75,5 +75,8 @@ cd ~/cysic-prover
 ./start.sh
 ```
 
+### 帮助
+[如何获取Eth prover的RPC链接](https://docs.cysic.xyz/tutorial-docs/how-to-run-a-prover-node#get-free-rpc-endpoint-used-by-eth-proof)
+
 ## 联系我
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/walirttt.svg?style=social&label=Follow%20%40walirttt)](https://twitter.com/walirttt)

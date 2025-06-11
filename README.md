@@ -75,5 +75,8 @@ cd ~/cysic-prover
 ./start.sh
 ```
 
+### Help
+[Get Free RPC endpoint used by eth proof](https://docs.cysic.xyz/tutorial-docs/how-to-run-a-prover-node#get-free-rpc-endpoint-used-by-eth-proof)
+
 ## Contact me
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/walirttt.svg?style=social&label=Follow%20%40walirttt)](https://twitter.com/walirttt)
