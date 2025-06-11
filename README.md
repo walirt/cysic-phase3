@@ -1,7 +1,17 @@
 # Cysic phase3 scripts
+| If you don't have an invite code, feel free to use my 👉 **fbd44**
 
 ## Verifier (with Docker)
-| [Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
+[Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
+
+### Recommended configuration
+```text
+CPU: Any
+GPU: Any
+RAM: At least 4G per verifier or higher
+DISK: At least 10G per verifier or higher
+OS: Ubuntu 22.04 with docker installed
+```
 
 ### Run directly
 ```bash
@@ -35,6 +45,17 @@ docker compose up -d
 ```
 
 ## Prover (without docker)
+
+### Recommended configuration
+```text
+CPU: Any
+GPU: 24GB VRAM or higher (3090, 3090Ti, 4090, 4090D)
+RAM: 32GB
+DISK: 100GB
+OS: Ubuntu 22.04
+```
+
+### Run
 ```bash
 apt update 
 apt install -y curl
