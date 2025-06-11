@@ -76,4 +76,4 @@ cd ~/cysic-prover
 ```
 
 ## 联系我
-![](https://img.shields.io/twitter/follow/walirttt)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/walirttt.svg?style=social&label=Follow%20%40walirttt)](https://twitter.com/walirttt)
