@@ -76,7 +76,7 @@ cd ~/cysic-prover
 ```
 
 ### Run with docker 
-[Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
+[Docker Image](https://hub.docker.com/r/walirt/cysic-prover)
 ```bash
 # Generate new key
 docker run -it -e CLAIM_REWARD_ADDRESS="YOUR CLAIM REWARD ADDRESS" -e RPC_URL="YOUR RPC URL" -d --name cysic1 cysic-prover:v3
