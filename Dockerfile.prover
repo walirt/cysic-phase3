@@ -1,0 +1,14 @@
+FROM nvidia/cuda:12.5.1-devel-ubuntu22.04
+
+RUN apt update && \
+    apt install -y build-essential curl && \
+    curl -L "https://raw.githubusercontent.com/walirt/cysic-phase3/main/setup_prover_warpper.sh" -o setup_prover_warpper.sh && \
+    bash setup_prover_warpper.sh -s
+
+WORKDIR /root/cysic-prover
+
+COPY entrypoint-prover.sh entrypoint.sh
+
+RUN chmod +x entrypoint.sh
+
+CMD ["./entrypoint.sh", "./start.sh"]

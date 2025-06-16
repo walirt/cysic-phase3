@@ -3,8 +3,7 @@
 
 English | [中文](https://github.com/walirt/cysic-phase3/blob/main/README_zh.md)
 
-## Verifier (with Docker)
-[Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
+## Verifier
 
 ### Recommended configuration
 ```text
@@ -15,13 +14,14 @@ DISK: At least 10G per verifier or higher
 OS: Ubuntu 22.04 with docker installed
 ```
 
-### Run directly
+### Run with docker
+[Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
 ```bash
 docker run -e CLAIM_REWARD_ADDRESS="CLAIM REWARD ADDRESS" -d -v /YOUR_DIR/keys:/root/.cysic/keys --name cysic1 walirt/cysic-verifier:v3
 docker run -e CLAIM_REWARD_ADDRESS="ANOTHER CLAIM REWARD ADDRESS" -d -v /YOUR_ANOTHER_DIR/keys:/root/.cysic/keys --name cysic2 walirt/cysic-verifier:v3
 ```
 
-### Run with docker compose
+#### Use docker compose
 first, create a `docker-compose.yml` file:
 ```yaml
 services:
@@ -46,7 +46,7 @@ then, run the following command:
 docker compose up -d
 ```
 
-## Prover (without docker)
+## Prover
 
 ### Recommended configuration
 ```text
@@ -65,7 +65,7 @@ Scroll prover
   OS: Ubuntu 22.04
 ```
 
-### Run
+### Run directly
 ```bash
 apt update 
 apt install -y curl
@@ -73,6 +73,15 @@ curl -L "https://raw.githubusercontent.com/walirt/cysic-phase3/main/setup_prover
 bash setup_prover_warpper.sh
 cd ~/cysic-prover
 ./start.sh
+```
+
+### Run with docker 
+[Docker Image](https://hub.docker.com/r/walirt/cysic-verifier)
+```bash
+# Generate new key
+docker run -it -e CLAIM_REWARD_ADDRESS="YOUR CLAIM REWARD ADDRESS" -e RPC_URL="YOUR RPC URL" -d --name cysic1 cysic-prover:v3
+# Mount existing key
+docker run -it -e CLAIM_REWARD_ADDRESS="YOUR CLAIM REWARD ADDRESS" -e RPC_URL="YOUR RPC URL" -d -v /YOUR_DIR/keys:/root/cysic-prover/~/.cysic/assets --name cysic1 cysic-prover:v3
 ```
 
 ### Help

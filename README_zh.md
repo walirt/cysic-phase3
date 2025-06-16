@@ -3,8 +3,7 @@
 
 [English](https://github.com/walirt/cysic-phase3/blob/main/README.md) | 中文
 
-## Verifier (使用 Docker)
-[Docker 镜像](https://hub.docker.com/r/walirt/cysic-verifier)
+## Verifier
 
 ### 推荐配置
 ```text
@@ -15,13 +14,14 @@ GPU: 任意
 操作系统: Ubuntu 22.04 并安装 Docker
 ```
 
-### 直接运行
+### 使用 Docker 运行
+[Docker 镜像](https://hub.docker.com/r/walirt/cysic-verifier)
 ```bash
 docker run -e CLAIM_REWARD_ADDRESS="奖励地址" -d -v /你的目录/keys:/root/.cysic/keys --name cysic1 walirt/cysic-verifier:v3
 docker run -e CLAIM_REWARD_ADDRESS="另一个奖励地址" -d -v /你的另一个目录/keys:/root/.cysic/keys --name cysic2 walirt/cysic-verifier:v3
 ```
 
-### 使用 docker compose 运行
+#### 使用 docker compose
 首先，创建一个 `docker-compose.yml` 文件：
 ```yaml
 services:
@@ -46,7 +46,7 @@ services:
 docker compose up -d
 ```
 
-## Prover (无需 docker)
+## Prover
 
 ### 推荐配置
 ```text
@@ -65,7 +65,7 @@ Scroll prover
   操作系统: Ubuntu 22.04
 ```
 
-### 运行
+### 直接运行
 ```bash
 apt update 
 apt install -y curl
@@ -73,6 +73,15 @@ curl -L "https://raw.githubusercontent.com/walirt/cysic-phase3/main/setup_prover
 bash setup_prover_warpper.sh
 cd ~/cysic-prover
 ./start.sh
+```
+
+### 使用 Docker 运行
+[Docker 镜像](https://hub.docker.com/r/walirt/cysic-verifier)
+```bash
+# 生成新key
+docker run -it -e CLAIM_REWARD_ADDRESS="你的奖励地址" -e RPC_URL="你的 RPC URL" -d --name cysic1 cysic-prover:v3
+# 挂载已有key
+docker run -it -e CLAIM_REWARD_ADDRESS="你的奖励地址" -e RPC_URL="你的 RPC URL" -d -v /你的目录/keys:/root/cysic-prover/~/.cysic/assets --name cysic1 cysic-prover:v3
 ```
 
 ### 帮助
