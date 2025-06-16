@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# 检查是否使用-s参数
+SKIP_PROMPT=false
+while getopts "s" opt; do
+  case $opt in
+    s)
+      SKIP_PROMPT=true
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
 echo "-----Installing rust-----"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source ~/.cargo/env
@@ -32,19 +46,24 @@ curl -L "https://github.com/cysic-labs/cysic-phase3/releases/download/v1.0.0/set
 sed -i '/# 询问用户是否运行 eth_dependency.sh/,/esac/d' ~/setup_prover.sh
 echo
 
-echo "-----Prompting-----"
-read -p "👉 Please enter your CLAIM_REWARD_ADDRESS: " CLAIM_REWARD_ADDRESS
+if [ "$SKIP_PROMPT" = false ]; then
+    echo "-----Prompting-----"
+    read -p "👉 Please enter your CLAIM_REWARD_ADDRESS: " CLAIM_REWARD_ADDRESS
 
-if [[ ! $CLAIM_REWARD_ADDRESS =~ ^0x[a-fA-F0-9]{40}$ ]]; then
-    echo "Error: Invalid Ethereum address format"
-    exit 1
-fi
+    if [[ ! $CLAIM_REWARD_ADDRESS =~ ^0x[a-fA-F0-9]{40}$ ]]; then
+        echo "Error: Invalid Ethereum address format"
+        exit 1
+    fi
 
-read -p "👉 Please enter your RPC_URL: " RPC_URL
+    read -p "👉 Please enter your RPC_URL: " RPC_URL
 
-if [[ ! $RPC_URL =~ ^https?:// ]]; then
-    echo "Error: Invalid RPC URL format"
-    exit 1
+    if [[ ! $RPC_URL =~ ^https?:// ]]; then
+        echo "Error: Invalid RPC URL format"
+        exit 1
+    fi
+else
+    CLAIM_REWARD_ADDRESS="\$CLAIM_REWARD_ADDRESS"
+    RPC_URL="\$RPC_URL"
 fi
 echo
 
