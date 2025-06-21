@@ -72,5 +72,18 @@ bash ~/setup_prover.sh $CLAIM_REWARD_ADDRESS $RPC_URL
 echo
 
 echo '-----Modify start.sh-----'
-sed -i '1i export PATH="$PATH:~/fake-docker/bin"' ~/cysic-prover/start.sh
+cat <<EOF >~/cysic-prover/start.sh
+#!/bin/bash
+
+export PATH="\$PATH:~/fake-docker/bin"
+export SP1_PROVER=cuda 
+export LD_LIBRARY_PATH=. 
+export CHAIN_ID=534352
+until ./prover; do
+    echo "Prover exited with code \$?. Restarting in 3 seconds..."
+    sleep 3
+done
+echo "Prover stopped."
+EOF
+chmod +x ~/cysic-prover/start.sh
 echo 'Done'
