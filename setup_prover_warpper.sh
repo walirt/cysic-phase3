@@ -28,6 +28,7 @@ echo
 echo "-----Downloading moongate-server-----"
 curl -L "https://raw.githubusercontent.com/walirt/cysic-phase3/main/moongate-server" \
      -o ~/moongate-server
+chmod +x ~/moongate-server
 echo
 
 echo "-----Creating fake-docker directory-----"
