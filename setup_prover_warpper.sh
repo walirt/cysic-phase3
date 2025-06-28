@@ -75,7 +75,7 @@ echo '-----Modify start.sh-----'
 cat <<EOF >~/cysic-prover/start.sh
 #!/bin/bash
 
-export PATH="\$PATH:~/fake-docker/bin"
+export PATH="\$PATH:$HOME/fake-docker/bin"
 export SP1_PROVER=cuda 
 export LD_LIBRARY_PATH=. 
 export CHAIN_ID=534352
